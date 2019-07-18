@@ -32,11 +32,11 @@ function draw() {
     
     // draw the red enemy
     fill(255, 0, 0);
-    image(togepi,enemyPosX, enemyPosY);
+    image(togepi,enemyPosX, enemyPosY,50,50);
     
     // draw myself
     fill(0, 0, 255);
-    image(clefairy, myPosX, myPosY);
+    image(clefairy, myPosX, myPosY,50,50);
 
     // if the LEFT_ARROW is pressed
     if (keyIsDown(LEFT_ARROW)) {
