@@ -2,13 +2,16 @@
 let myPosX = 25;
 let myPosY = 25;
 let mySpeed = 3;
-
+let points = 0;
 let enemyPosX, enemyPosY;
 let enemyWidth = 50, enemyHeight = 50;
-
+let togepi, clefairy;
 let myLeft, myRight, myTop, myBottom;
 let enemyLeft, enemyRight, enemyTop, enemyBottom;
-
+function preload(){
+    clefairy = loadImage('clefairy.png');
+    togepi = loadImage('togepi.png')
+}
 function setup() {
     createCanvas(500, 500);
     background(0);
@@ -29,11 +32,11 @@ function draw() {
     
     // draw the red enemy
     fill(255, 0, 0);
-    rect(enemyPosX, enemyPosY, enemyWidth, enemyHeight);
+    image(togepi,enemyPosX, enemyPosY);
     
     // draw myself
     fill(0, 0, 255);
-    rect(myPosX, myPosY, 50, 50);
+    image(clefairy, myPosX, myPosY);
 
     // if the LEFT_ARROW is pressed
     if (keyIsDown(LEFT_ARROW)) {
@@ -92,9 +95,13 @@ function draw() {
     else {
         // there IS collision!!!
         console.log("Collision!");
-
+        enemyPosX = random(0,500)
+        enemyPosY = random(0,500)
         // output text to the user 
+        points++;
         fill(random(255), random(255), random(255));
         text("I'm colliding with my enemy. Ouch!", 255, 480);
     }
+    fill(255);
+    text(`Points: ${points}`, 400, 50);
 }
